@@ -1,0 +1,12 @@
+POST http://localhost:5000/api/phones HTTP/1.1
+Content-Type: application/json
+
+{
+    "model":"13Pro",
+    "mark":"iPhone",
+    "realizeDate":"2010-10-17",
+    "ramSize":6,
+    "processor":"AGH-1780",
+    "screenDiagonal":"6.6",
+    "nfs":false
+}
