@@ -1,5 +1,5 @@
-const {Phone} = require('../models');
-const { Op,where, fn,col, literal } = require('sequelize');
+const {Phone,Mark} = require('../models');
+const { Op,where, fn, literal } = require('sequelize');
 
 module.exports.createPhone = async(req,res,next) =>{
     try {
@@ -25,6 +25,20 @@ module.exports.findAll = async(req,res,next) =>{
         next(error)
     }
 }
+
+// module.exports.findToYearRealise = async(req,res,next) =>{
+//     try {
+//         const {params: {year}} = req
+//         const findAllPhones = await Phone.findAll({
+//             where: where(fn('EXTRACT', literal(`YEAR FROM "realize_date"`)), year)
+            
+//         })
+        
+//         return res.status(200).send(findAllPhones)
+//     } catch (error) {
+//         next(error)
+//     }
+// }
 
 module.exports.findToYearRealise = async(req,res,next) =>{
     try {
@@ -124,8 +138,9 @@ module.exports.deletePhoneByRealizeDate = async(req,res,next) =>{
             return res.status(200).send(allPhoneOnDelete);
         }
 
-        return res.status(404).send('Phone not found =(1');
+        return res.status(404).send('Phone not found =(');
     } catch (error) {
         next(error)
     }
 }
+
